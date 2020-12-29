@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=DarQ
+Comment=Force Dark Mode Android
+Icon=/home/realgrm/Pictures/icons/DarQ.png
+Exec=/home/realgrm/Documents/shell-scripts/DarQ.ADB.v1.1/rundarq-linux-mac.sh
+Terminal=true
+Actions=
+Categories=Utility;

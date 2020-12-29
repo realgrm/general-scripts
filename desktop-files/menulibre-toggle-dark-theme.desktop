@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Toggle dark theme
+Comment=A small descriptive blurb about this application.
+Icon=night-light-symbolic
+Exec=/home/realgrm/Documents/shell-scripts/toggle-light-dark-theme.sh
+Actions=
+Categories=Utility;

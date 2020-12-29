@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=AppImage GitHub
+Comment=
+Icon=/home/realgrm/Pictures/icons/appimage-github.png
+Exec=xdg-open https://appimage.github.io/apps/
+Actions=
+Categories=Utility;

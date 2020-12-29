@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=File History &amp; Trash
+NoDisplay=true
+Comment=Don&apos;t leave traces
+Icon=system-file-manager
+OnlyShowIn=GNOME;Unity;
+Exec=gnome-control-center usage
+Actions=
+Categories=DesktopSettings;GNOME;GTK;Settings;X-GNOME-PrivacySettings;X-GNOME-Settings-Panel;X-GNOME-SystemSettings;
+Keywords=screen;lock;diagnostics;crash;private;recent;temporary;tmp;index;name;network;identity;privacy;
+StartupNotify=true

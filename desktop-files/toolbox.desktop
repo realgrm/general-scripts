@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=toolbox
+Comment=Start toolbox
+Keywords=shell;prompt;command;commandline;cmd;podman;
+Exec=gnome-terminal --profile=toolbox
+Icon=org.gnome.Terminal
+Type=Application
+Categories=GNOME;GTK;System;TerminalEmulator;
+StartupNotify=true
+X-GNOME-SingleWindow=false
+

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=TCC1
+Comment=Estudo Engenharia Mecânica Estácio 2020.02 online
+Icon=folder
+Exec=xdg-open google-drive://gabriel.reis.mattoso@gmail.com/0B6K8DlBkibsVTDRHLTRweEo2ak0/0B6K8DlBkibsVc1A1Z0NKMkxfbms/1XPgPLlDVadU0OIek1G2OHMIiwumiztx0/1cEA5SQ1akXxNXVY6PtO-6H3eFgq8bRXy
+Actions=
+Categories=Utility;

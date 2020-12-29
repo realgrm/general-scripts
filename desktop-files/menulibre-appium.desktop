@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Appium
+Comment=AppImage
+Icon=/home/realgrm/Pictures/icons/appium.png
+Exec=/home/realgrm/.var/app/AppImages/Appium-linux-1.18.3.AppImage
+Actions=
+Categories=Utility;

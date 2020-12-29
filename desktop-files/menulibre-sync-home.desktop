@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Sync Home
+Comment=FreeFileSync
+Icon=emblem-synchronizing-symbolic
+Exec=flatpak run org.freefilesync.FreeFileSync /home/realgrm/Documents/shell-scripts/FreeFileSync/SyncSettings.ffs_gui
+Actions=
+Categories=Utility;

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=App Outlet
+Comment=A small descriptive blurb about this application.
+Icon=/home/realgrm/Pictures/icons/app-outlet.png
+Exec=/home/realgrm/.var/app/AppImages/App.Outlet-1.3.4.AppImage
+Actions=
+Categories=Utility;

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=AppImageHub
+Comment=
+Icon=/home/realgrm/Pictures/icons/appimagehub.png
+Exec=xdg-open https://www.appimagehub.com/browse
+Actions=
+Categories=Utility;

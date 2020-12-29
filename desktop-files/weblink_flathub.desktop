@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Flathub
+Comment=
+Icon=/home/realgrm/Pictures/icons/flathub.png
+Exec=xdg-open https://flathub.org/apps
+Actions=
+Categories=Utility;
