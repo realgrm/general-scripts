@@ -43,6 +43,9 @@ APPS_ADD=(
 	ffmpeg
 	pygobject3
 	python3-gobject
+	ffmpegthumbnailer
+	fira-code-fonts
+	jetbrains-mono-fonts-all
 )
 
 for app in ${APPS_ADD[@]}; do
