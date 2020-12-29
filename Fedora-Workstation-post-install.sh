@@ -1,5 +1,14 @@
 #!/bin/bash
 
+if [ $USER == "root" ]; 
+then 
+echo "current user: $USER
+please do not run this script as root user
+but with an user administrator account using sudo"
+exit
+else echo ""
+fi
+
 # Set dark theme
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 
@@ -227,7 +236,7 @@ toolbox run sudo cp -r ~/.update_desktop_files/themes/* /usr/share/themes
 # ------------ Permissions ------------
 
 # add my user to libvirt group, so virt-manager doesn't prompt for password 
-sudo usermod -a -G libvirt realgrm
+sudo usermod -a -G libvirt $USER
 
 
 # Gives execution permission to all scripts in specified folders and subfolders
