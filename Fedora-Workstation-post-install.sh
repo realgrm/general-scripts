@@ -2,22 +2,22 @@
 
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 
-# ------------ Aplicações distro ------------
+# ------------ distro apps ------------
 
-#Habilitando Placa Wifi notebook
+#Enable Wifi driver for my notebook
 sudo dnf copr enable -y sergiomb/akmod-rtl8821ce
 sudo dnf install -y rtl8821ce
 sudo akmods-shutdown
 
 
-# Adicionar repositórios rpm free e non-free
+# Add repositories rpmfusion free e non-free
 sudo dnf install -y \
 	https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
 	https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 
 # ------------ 
-APPS_ADICIONAR=(	
+APPS_ADD=(	
 	gnome-tweaks
 	openssl
 	htop
@@ -35,16 +35,15 @@ APPS_ADICIONAR=(
 	python3-gobject
 )
 
-# tenta o método mais rápido, se falhar, faz um por um
-for nome_do_programa in ${APPS_ADICIONAR[@]}; do
-	sudo dnf install -y "$nome_do_programa"
+for app in ${APPS_ADD[@]}; do
+	sudo dnf install -y "$app"
 done
 
 
 # ------------ 
 
 #Remover programas (alguns ou todos serão adicionados em flatpak)
-APPS_REMOVER=(
+APPS_REMOVE=(
 	libreoffice*
 	gnome-extensions-app
 	gedit
@@ -70,43 +69,17 @@ APPS_REMOVER=(
 	gnome-screenshot
 )	
 
-for nome_do_programa in ${APPS_REMOVER[@]}; do
-	sudo dnf remove -y "$nome_do_programa"
+for app in ${APPS_REMOVE[@]}; do
+	sudo dnf remove -y "$app"
 done
 
 # ------------ 
 
-# atualizar
+# update system
 sudo dnf upgrade -y
 
 
-# openssl é uma dependência da extensão GSConnect
-
-#ohmyzsh
-sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-
-# ------------ Permissões ------------
-
-# adicionar usuário ao grupo libvirt pra usar o virt-manager sem senha
-sudo usermod -a -G libvirt realgrm
-
-
-# ------------ Arquivos de configuração ------------
-
-# Permissão de execução para todos os scripts na pasta e subpastas
-
-PASTAS=(
-	~/Documents/shell-scripts
-	~/.update_desktop_files
-	~/.local/share/nautilus-python
-	~/.local/share/nautilus
-	~/.var/app/AppImages
-)
-
-
-for pasta in ${PASTAS[@]}; do
-	find $pasta -type f -exec /bin/sh -c "file {} | grep -q executable && chmod +x {}" \;
-done
+# PS: openssl is a dependency os the extension GSConnect
 
 
 # ------------ Flatpaks ------------
@@ -116,14 +89,14 @@ done
 #sudo ln -s /home/root_link/var/lib/flatpak /var/lib/flatpak
 
 
-# Adicionar Repositório do Flathub
+# Add remotes
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 sudo flatpak remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
 sudo flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org
 
 
-# instalar pacotes flatpak
+# install apps
 
 FLATPAK_FLATHUB=(
 	org.freefilesync.FreeFileSync
@@ -169,8 +142,8 @@ FLATPAK_FLATHUB=(
 	org.gabmus.gfeeds
 )
 
-for nome_do_programa in ${FLATPAK_FLATHUB[@]}; do
-	flatpak install -y flathub "$nome_do_programa"
+for app in ${FLATPAK_FLATHUB[@]}; do
+	flatpak install -y flathub "$app"
 done
 
 # ------------
@@ -181,8 +154,8 @@ FLATPAK_FLATHUB_BETA=(
 	org.chromium.Chromium
 )	
 
-for nome_do_programa in ${FLATPAK_FLATHUB_BETA[@]}; do
-	flatpak install -y flathub-beta "$nome_do_programa"
+for app in ${FLATPAK_FLATHUB_BETA[@]}; do
+	flatpak install -y flathub-beta "$app"
 done
 
 # ------------
@@ -193,8 +166,8 @@ FLATPAK_GNOME_NIGHTLY=(
 	org.gnome.Extensions
 )	
 
-for nome_do_programa in ${FLATPAK_GNOME_NIGHTLY[@]}; do
-	flatpak install -y gnome-nightly "$nome_do_programa"
+for app in ${FLATPAK_GNOME_NIGHTLY[@]}; do
+	flatpak install -y gnome-nightly "$app"
 done
 
 # ------------
@@ -205,8 +178,8 @@ FLATPAK_FEDORA=(
 )	
 
 
-for nome_do_programa in ${FLATPAK_FEDORA[@]}; do
-	flatpak install -y fedora "$nome_do_programa"
+for app in ${FLATPAK_FEDORA[@]}; do
+	flatpak install -y fedora "$app"
 done
 
 
@@ -221,18 +194,17 @@ SNAPS=(
 	guiscrcpy
 )
 
-for nome_do_programa in ${SNAPS[@]}; do
-	sudo snap install "$nome_do_programa"
+for app in ${SNAPS[@]}; do
+	sudo snap install "$app"
 done
 
-# os pacotes do repositórios beta só podem ser instalados depois da reinicialização
 
-# ------------ Operações dentro da toolbox ------------
+# ------------ toolbox ------------
 
-#Criar toolbox fedora
+# create a fedora toolbox
 toolbox create -y
 
-#Instalar apps na toolbox
+#Inside a fedora toolbox
 APPS_TOOLBOX=(
 	"https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm"
 	"https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
@@ -240,31 +212,40 @@ APPS_TOOLBOX=(
 	megasync
 )
 
-for nome_do_programa in ${APPS_TOOLBOX[@]}; do
-	toolbox run sudo dnf install -y "$nome_do_programa"
+for app in ${APPS_TOOLBOX[@]}; do
+	toolbox run sudo dnf install -y "$app"
 done
 
-# ajustando temas
+# make make a copy of the host themes in the toolbox
 cp -r ~/.themes/* ~/.update_desktop_files/themes/
 cp -r usr/share/themes/* ~/.update_desktop_files/themes/
 toolbox run sudo cp -r ~/.update_desktop_files/themes/* /usr/share/themes
 
-	
-# inotify-tools possui a ferramenta inotifywait usada para observar a modificação de algum arquivo/pasta e executar uma ação (script). A instalação dentro da toolbox será uma tentativa de fazer que sua execução só ocorra enquanto a toolbox estiver ativa
 
-# ------------ GitHub ------------
 
-# DarQ
-# para atualizar link, verificar em https://github.com/KieronQuinn/DarQ
-#mkdir -p ~/Documents/shell-scripts
-#cd ~/Documents/shell-scripts
-#wget -O Darq.zip https://forum.xda-developers.com/attachment.php?attachmentid=5113735&stc=1&d=1602442004 && unzip -o -q Darq.zip -d DarQ.ADB.v1.1
-#rm Darq.zip
+# ------------ Permissions ------------
 
-#script to create a debian sid toolbox
-~/Documents/shell-scripts/create-toolbox-debian-sid.sh
+# add my user to libvirt group, so virt-manager doesn't prompt for password 
+sudo usermod -a -G libvirt realgrm
 
-# ------------ Configurações Manuais ------------
+
+# Gives execution permission to all scripts in specified folders and subfolders
+
+FOLDERS=(
+	~/.local/scripts
+	~/.local/share/nautilus-python
+	~/.local/share/nautilus
+	~/.var/app/AppImages
+)
+
+
+for folder in ${FOLDERS[@]}; do
+	find $folder -type f -exec /bin/sh -c "file {} | grep -q executable && chmod +x {}" \;
+done
+
+
+
+# ------------ Manual configuration ------------
 
 zenity --info --icon-name checkbox-checked-symbolic --title="Configurações manuais" --width=400 \
 --text="""
