@@ -4,7 +4,13 @@ printf "\ncurrent folder:"
 
 pwd 
 
-printf "command executed: du -h -d 1 \| sort -h \n\nRunning without sudo will skip files without permission \nBy design errors are hidden \nPlease wait, this may take a while. \n\n"
+printf "command executed: du -h -d 1 \| sort -h
+
+Running without sudo will skip files without permission
+By design errors are hidden
+Please wait, this may take a while.
+
+"
 
 du -h -d 1 2>/dev/null | sort -h 
 
