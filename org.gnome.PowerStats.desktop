@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Power Statistics
+Comment=Observe power management
+Icon=org.gnome.PowerStats
+OnlyShowIn=GNOME;Unity;
+Exec=bash -c '$(GTK_THEME=Adwaita:light /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=gnome-power-statistics org.gnome.PowerStats)'
+Actions=
+Categories=GNOME;GTK;Monitor;System;System-Tools;
+Keywords=battery;consumption;charge;
+StartupNotify=true
