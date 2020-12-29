@@ -4,7 +4,7 @@ printf "\ncurrent folder:"
 
 pwd 
 
-printf "command executed: du -h -d 1 \| sort -h
+printf "command executed: du -h -d 1 2>/dev/null | sort -h
 "
 echo "
 By design errors are hidden
