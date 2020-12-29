@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# this is a copy of the script avaliable in https://piware.de/gitweb/?p=bin.git;a=blob;f=build-debian-toolbox
+# It may be outdated. To an updated version, check the original work.
+
 RELEASE=${1:-latest}
 DISTRO=${2:-ubuntu}
 
