@@ -112,6 +112,13 @@ wget https://origin.ostree.endlessm.com/keys/eos-flatpak-keyring.gpg
 flatpak remote-add --gpg-import=eos-flatpak-keyring.gpg eos-apps https://ostree.endlessm.com/ostree/eos-apps
 flatpak remote-add --gpg-import=eos-flatpak-keyring.gpg eos-sdk https://ostree.endlessm.com/ostree/eos-sdk
 
+# Remotes references
+# Flathub: https://flatpak.org/setup/Fedora/
+# Flathub Beta: https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+# Gnome Nightly: https://wiki.gnome.org/Apps/Nightly
+# Endless: https://gist.github.com/mwleeds/17e2113c893b412409232ff43e2051f7
+
+
 # install apps
 
 FLATPAK_FLATHUB=(
