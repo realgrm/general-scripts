@@ -113,8 +113,8 @@ sudo flatpak remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/
 sudo flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org
 
 wget https://origin.ostree.endlessm.com/keys/eos-flatpak-keyring.gpg
-flatpak remote-add --gpg-import=eos-flatpak-keyring.gpg eos-apps https://ostree.endlessm.com/ostree/eos-apps
-flatpak remote-add --gpg-import=eos-flatpak-keyring.gpg eos-sdk https://ostree.endlessm.com/ostree/eos-sdk
+sudo flatpak remote-add --gpg-import=eos-flatpak-keyring.gpg eos-apps https://ostree.endlessm.com/ostree/eos-apps
+sudo flatpak remote-add --gpg-import=eos-flatpak-keyring.gpg eos-sdk https://ostree.endlessm.com/ostree/eos-sdk
 
 # Remotes references
 # Flathub: https://flatpak.org/setup/Fedora/
