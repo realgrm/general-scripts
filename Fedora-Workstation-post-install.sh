@@ -27,6 +27,9 @@ sudo dnf install -y \
 
 
 # ------------ 
+
+# Add apps
+
 APPS_ADD=(	
 	gnome-tweaks
 	openssl
@@ -55,7 +58,8 @@ done
 
 # ------------ 
 
-#Remover programas (alguns ou todos serão adicionados em flatpak)
+# Remove apps (some of them will be replaced with the flatpak version)
+
 APPS_REMOVE=(
 	libreoffice*
 	gnome-extensions-app
