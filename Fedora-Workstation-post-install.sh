@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# based on https://github.com/Diolinux/Linux-Mint-19.x-PosInstall/blob/master/Linux%20Mint%2019.x%20posinstall%20Diolinux.sh
+
 if [ $USER == "root" ]; 
 then 
 echo "current user: $USER
