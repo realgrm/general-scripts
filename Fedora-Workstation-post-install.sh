@@ -316,4 +316,7 @@ zenity --info --icon-name checkbox-checked-symbolic --title="Configurações man
 https://github.com/rafaelmardojai/firefox-gnome-theme
 https://gist.github.com/miguelmota/61569c49332974f870c8a71fde081181
 https://github.com/Timvde/UserChrome-Tweaks
+
+- Firefox privacy
+https://youtu.be/xxWXLlfqNAo
 """
