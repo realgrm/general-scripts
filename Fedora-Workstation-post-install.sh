@@ -53,7 +53,7 @@ APPS_ADD=(
 	jetbrains-mono-fonts-all
 )
 
-sudo dnf install -y ${APPS_ADD[@]}
+sudo dnf install -y --skip-broken ${APPS_ADD[@]}
 
 # ------------ 
 
@@ -85,7 +85,7 @@ APPS_REMOVE=(
 	gnome-screenshot
 )	
 
-sudo dnf remove -y ${APPS_REMOVE[@]}
+sudo dnf remove -y --skip-broken ${APPS_REMOVE[@]}
 
 # ------------ 
 
@@ -166,8 +166,9 @@ FLATPAK_FLATHUB=(
 	org.gabmus.gfeeds
 )
 
-
-flatpak install -y flathub ${FLATPAK_FLATHUB[@]}
+for app in ${FLATPAK_FLATHUB[@]}; do
+	flatpak install -y flathub "$app"
+done
 
 # ------------
 
@@ -177,7 +178,9 @@ FLATPAK_FLATHUB_BETA=(
 	org.chromium.Chromium
 )	
 
-flatpak install -y flathub-beta ${FLATPAK_FLATHUB_BETA[@]}
+for app in ${FLATPAK_FLATHUB_BETA[@]}; do
+	flatpak install -y flathub-beta "$app"
+done
 
 # ------------
 
@@ -187,7 +190,9 @@ FLATPAK_GNOME_NIGHTLY=(
 	org.gnome.Extensions
 )	
 
-flatpak install -y gnome-nightly ${FLATPAK_GNOME_NIGHTLY[@]}
+for app in ${FLATPAK_GNOME_NIGHTLY[@]}; do
+	flatpak install -y gnome-nightly "$app"
+done
 
 # ------------
 
@@ -196,7 +201,11 @@ FLATPAK_FEDORA=(
 	org.gnome.NautilusPreviewer
 )	
 
-flatpak install -y fedora ${FLATPAK_FEDORA[@]}
+
+for app in ${FLATPAK_FEDORA[@]}; do
+	flatpak install -y fedora "$app"
+done
+
 
 # ------------ Snaps ------------
 
