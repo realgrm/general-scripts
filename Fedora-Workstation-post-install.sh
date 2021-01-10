@@ -46,7 +46,6 @@ APPS_ADD=(
 	buildah
 	pop-shell
 	ffmpeg
-	pygobject3
 	python3-gobject
 	ffmpegthumbnailer
 	fira-code-fonts
