@@ -46,17 +46,13 @@ APPS_ADD=(
 	buildah
 	pop-shell
 	ffmpeg
-	pygobject3
 	python3-gobject
 	ffmpegthumbnailer
 	fira-code-fonts
 	jetbrains-mono-fonts-all
 )
 
-for app in ${APPS_ADD[@]}; do
-	sudo dnf install -y "$app"
-done
-
+sudo dnf install -y --skip-broken ${APPS_ADD[@]}
 
 # ------------ 
 
@@ -88,9 +84,7 @@ APPS_REMOVE=(
 	gnome-screenshot
 )	
 
-for app in ${APPS_REMOVE[@]}; do
-	sudo dnf remove -y "$app"
-done
+sudo dnf remove -y --skip-broken ${APPS_REMOVE[@]}
 
 # ------------ 
 
