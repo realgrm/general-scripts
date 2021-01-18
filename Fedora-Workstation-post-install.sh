@@ -289,7 +289,7 @@ zenity --info --icon-name checkbox-checked-symbolic --title="Configurações man
 	scroll panel
 	sound i/o device chooser
 
-- Atalhos teclado
+- keybord shortcuts
 	
 	Workspace up:  Win+W
 	Workspace down:  Win+S
