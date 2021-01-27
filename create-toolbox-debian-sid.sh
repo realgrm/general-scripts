@@ -1,13 +1,13 @@
 #!/bin/sh
 
-# this is a copy of the script avaliable in https://piware.de/gitweb/?p=bin.git;a=blob;f=build-debian-toolbox
+# this is a copy with minor modifications of the script avaliable in https://piware.de/gitweb/?p=bin.git;a=blob;f=build-debian-toolbox
 # It may be outdated. To an updated version, check the original work.
 
-RELEASE=${1:-latest}
-DISTRO=${2:-ubuntu}
+RELEASE=${1:-sid}
+DISTRO=${2:-debian}
 
 toolbox rm -f $RELEASE
-toolbox -y create -c $RELEASE --image docker.io/$DISTRO:$RELEASE
+toolbox -y create -c $DISTRO-$RELEASE --image docker.io/$DISTRO:$RELEASE
 
 # can't do that with toolbox run yet, as we need to install sudo first
 podman start $RELEASE
