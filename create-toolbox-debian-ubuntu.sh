@@ -3,15 +3,17 @@
 # this is a copy of the script avaliable in https://piware.de/gitweb/?p=bin.git;a=blob;f=build-debian-toolbox
 # It may be outdated. To an updated version, check the original work.
 
+# check more options of versions looking at avaliable tags in https://hub.docker.com/_/debian?tab=tags and https://hub.docker.com/_/ubuntu?tab=tags
 RELEASE=${1:-latest}
 DISTRO=${2:-ubuntu}
+toolboxname=$DISTRO-$RELEASE
 
-toolbox rm -f $RELEASE
-toolbox -y create -c $RELEASE --image docker.io/$DISTRO:$RELEASE
+toolbox rm -f $toolboxname # be careful if you have an existing toolbox with the same name, it will be removed
+toolbox -y create -c $toolboxname --image docker.io/$DISTRO:$RELEASE
 
 # can't do that with toolbox run yet, as we need to install sudo first
-podman start $RELEASE
-podman exec -it $RELEASE sh -exc '
+podman start $toolboxname
+podman exec -it $toolboxname sh -exc '
 # go-faster apt/dpkg
 echo force-unsafe-io > /etc/dpkg/dpkg.cfg.d/unsafe-io
 
@@ -25,7 +27,7 @@ apt-get install -y libnss-myhostname sudo eatmydata libcap2-bin
 sed -i "s/nullok_secure/nullok/" /etc/pam.d/common-auth
 '
 
-toolbox run --container $RELEASE sh -exc '
+toolbox run --container $toolboxname sh -exc '
 # otherwise installing systemd fails
 sudo umount /var/log/journal
 
